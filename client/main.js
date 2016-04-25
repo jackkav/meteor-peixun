@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import pinyin from 'pinyin';
+import underscore from 'underscore';
 
 import './main.html';
 
@@ -17,11 +18,16 @@ Template.hello.helpers({
 
 Template.hello.events({
   'click button'(event, instance) {
-    // increment the counter when button is clicked
-    console.log(pinyin('中心'))
     Meteor.call("getMyIp", function(e,r){
       instance.counter.set(r)
     });
-    // instance.counter.set(instance.counter.get() + 1);
+
   },
+  'keydown input': function (event) {
+        if (event.keyCode === 13) {
+            var query = $('.chinese').val();
+            if (query)
+                console.log(_.flatten(pinyin(query)).join(" "))
+        }
+    },
 });

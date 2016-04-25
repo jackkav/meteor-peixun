@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0",
-    "pinyin-string": "0.0.1"
+    "pinyin-string": "0.0.1",
+    "underscore": "^1.8.3"
   }
 }
