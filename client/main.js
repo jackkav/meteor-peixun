@@ -17,6 +17,9 @@ Template.hello.helpers({
 Template.hello.events({
   'click button'(event, instance) {
     // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+    Meteor.call("getMyIp", function(e,r){
+      instance.counter.set(r)
+    });
+    // instance.counter.set(instance.counter.get() + 1);
   },
 });
