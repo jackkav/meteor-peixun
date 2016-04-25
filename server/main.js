@@ -7,6 +7,6 @@ Meteor.startup(() => {
 Meteor.methods({
   getMyIp: function()
   {
-    return HTTP.get("http://engine.scichina.com:8080/json/").content;
+    return HTTP.get("http://ipinfo.io/ip/").content;
   }
 })
